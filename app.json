@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/me/me",
+    "pages/index/index-item-template/index-item-template",
+    "pages/index/index-detail/index-detail",
+    "pages/movies/movies",
+    "pages/movies/stars/stars-template",
+    "pages/movies/movie/movie-template",
+    "pages/movies/movie-list/movie-list-template",
+    "pages/movies/more-movie/more-movie",
+    "pages/movies/movie-grid/movie-grid-template"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#666",
+    "navigationBarTitleText": "欢迎你",
+    "navigationBarTextStyle": "write"
+  },
+  "tabBar": {
+    "backgroundColor": "#666",
+    "color": "#2c2",
+    "selectedColor": "blue",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/tab/ciwei.png",
+        "selectedIconPath": "image/tab/ciwei_hl.png"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "电影",
+        "iconPath": "image/tab/yuedu.png",
+        "selectedIconPath": "image/tab/yuedu_hl.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "image/tab/dianying.png",
+        "selectedIconPath": "image/tab/dianying_hl.png"
+      }
+    ]
+  }
+}

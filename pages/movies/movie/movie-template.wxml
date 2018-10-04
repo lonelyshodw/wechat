@@ -1,0 +1,9 @@
+<import src="../stars/stars-template.wxml" />
+<template name="movieTemplate">
+  <!--页面的图片标题和引入的stars模板-->
+  <view class="movie-container" catchtap="onMovieTap" data-movieId="{{movieId}}">
+    <image class="movie-img" src="{{coverageUrl}}"></image>
+    <text class="movie-title">{{title}}</text>
+    <template is="starsTemplate" data="{{stars:stars,score:average}}" />
+  </view>
+</template>

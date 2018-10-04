@@ -1,0 +1,13 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+  <text>会员登录</text>
+  <form>
+    <view >
+      用户名：<input class="input-form" type="text" ></input>
+      密码：<input class="input-form" password="true" ></input>
+    </view>
+    <view >
+      <button class=""  size="mini"> 登录 </button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,33 @@
+/* pages/welcome/welcome.wxss */
+
+.contianer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.ima {
+  width: 100%;
+  height: 800rpx;
+  margin-bottom: 20rpx;
+}
+
+.font {
+  font-size: 32rpx;
+  font-style: inherit;
+  margin: 40rpx;
+}
+
+.font-contianer {
+  border: 1rpx solid black;
+  border-radius: 10px; 
+  background-color: rgb(252, 235, 0);
+  position: absolute;
+  top: 300rpx;
+  padding:20rpx;
+  opacity: 0.6;
+}

@@ -1,0 +1,8 @@
+<view class="contianer">
+  <image class="ima" src="{{imageUrl}}"></image>
+  <view class="font-contianer" bindtap="welcome">
+      <text class="font" >{{text}}</text>
+  </view>
+</view>
+  
+
