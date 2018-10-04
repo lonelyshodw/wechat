@@ -11,7 +11,8 @@
     "pages/movies/movie/movie-template",
     "pages/movies/movie-list/movie-list-template",
     "pages/movies/more-movie/more-movie",
-    "pages/movies/movie-grid/movie-grid-template"
+    "pages/movies/movie-grid/movie-grid-template",
+    "pages/movies/movie-detail/movie-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
