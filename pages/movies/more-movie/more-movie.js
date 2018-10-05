@@ -37,70 +37,77 @@ Page({
     util.http(dataUrl, this.processDoubanData)
   },
   //下拉刷新
-  onScrollLower: function(event) {
+  onReachBottom: function(event) {
     var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
     util.http(nextUrl, this.processDoubanData);
     wx.showNavigationBarLoading();
   },
-  //
-  onSrolltoupper: function() {
-    var that=this;
-    wx.startPullDownRefresh({
-      success:function(event){
-        var refreshUrl = that.data.requestUrl + "?start=0&count=20";
-        that.data.movies = {};
-        that.data.isEmpty = true;
-        that.data.totalCount = 0;
-        util.http(refreshUrl, that.processDoubanData);
-        wx.showNavigationBarLoading();
-      }
-    })
-   
+  //上划刷新
+  // onSrolltoupper: function() {
+  //   var that=this;
+  //   wx.startPullDownRefresh({
+  //     success:function(event){
+  //       var refreshUrl = that.data.requestUrl + "?start=0&count=20";
+  //       that.data.movies = {};
+  //       that.data.isEmpty = true;
+  //       that.data.totalCount = 0;
+  //       util.http(refreshUrl, that.processDoubanData);
+  //       wx.showNavigationBarLoading();
+  //     }
+  //   })
+  // },
+  onPullDownRefresh: function() {
+    var refreshUrl = this.data.requestUrl + "?start=0&count=20";
+    this.data.movies = {};
+    this.data.isEmpty = true;
+    this.data.totalCount = 0;
+    util.http(refreshUrl, this.processDoubanData);
+    wx.showNavigationBarLoading();
   },
-  processDoubanData: function(moviesDouban) {
-    var movies = [];
-    for (var idx in moviesDouban.subjects) {
-      var subject = moviesDouban.subjects[idx];
-      var title = subject.title;
-      if (title.length >= 6) {
-        title = title.substring(0, 6) + "...";
-      }
-      var temp = {
-        stars: util.convertToStarsArray(subject.rating.stars),
-        title: title,
-        average: subject.rating.average,
-        coverageUrl: subject.images.large,
-        movieId: subject.id,
-      }
-      movies.push(temp)
+processDoubanData: function(moviesDouban) {
+  var movies = [];
+  for (var idx in moviesDouban.subjects) {
+    var subject = moviesDouban.subjects[idx];
+    var title = subject.title;
+    if (title.length >= 6) {
+      title = title.substring(0, 6) + "...";
     }
-    //控制下拉刷新的电影数量
-    var toatalMovies = {};
-    if (!this.data.isEmpty) {
-      toatalMovies = this.data.movies.concat(movies);
-    } else {
-      toatalMovies = movies;
-      this.data.isEmpty = false;
+    var temp = {
+      stars: util.convertToStarsArray(subject.rating.stars),
+      title: title,
+      average: subject.rating.average,
+      coverageUrl: subject.images.large,
+      movieId: subject.id,
     }
-    this.setData({
-      movies: toatalMovies
-    });
-    this.data.totalCount += 20;
-    wx.hideNavigationBarLoading();
-    wx.stopPullDownRefresh();
-  },
-  onMovieTap: function (event) {
-    var movieId = event.currentTarget.dataset.movieid;
-    wx.navigateTo({
-      url: '../movie-detail/movie-detail?id=' + movieId,
-    })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-    wx.setNavigationBarTitle({
-      title: this.data.navigateTitle,
-    })
-  },
+    movies.push(temp)
+  }
+  //控制下拉刷新的电影数量
+  var toatalMovies = {};
+  if (!this.data.isEmpty) {
+    toatalMovies = this.data.movies.concat(movies);
+  } else {
+    toatalMovies = movies;
+    this.data.isEmpty = false;
+  }
+  this.setData({
+    movies: toatalMovies
+  });
+  this.data.totalCount += 20;
+  wx.hideNavigationBarLoading();
+  wx.stopPullDownRefresh();
+},
+onMovieTap: function(event) {
+  var movieId = event.currentTarget.dataset.movieid;
+  wx.navigateTo({
+    url: '../movie-detail/movie-detail?id=' + movieId,
+  })
+},
+/**
+ * 生命周期函数--监听页面初次渲染完成
+ */
+onReady: function() {
+  wx.setNavigationBarTitle({
+    title: this.data.navigateTitle,
+  })
+},
 })

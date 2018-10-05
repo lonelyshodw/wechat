@@ -1,8 +1,10 @@
 var util = require('../../../../utils/util.js');
 class Movie {
+  //构造函数
   constructor(url) {
     this.url = url;
   }
+  //方法
   getMovieData(cb) {
     this.cb = cb;
     util.http(this.url, this.processDoubanData.bind(this));
@@ -11,6 +13,7 @@ class Movie {
     if (!data) {
       return;
     }
+    //导演 
     var director = {
       avatar: "",
       name: "",
@@ -23,6 +26,7 @@ class Movie {
       director.name = data.directors[0].name;
       director.id = data.directors[0].id;
     }
+    //对数据赋值
     var movie = {
       movieImg: data.images ? data.images.large : "",
       country: data.countries[0],

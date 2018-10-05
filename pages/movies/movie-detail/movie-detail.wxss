@@ -49,8 +49,6 @@
     font-size:26rpx;
     margin-right: 10rpx;
     padding-left: 10rpx;
-    
-   
 }
 
 .plain-font{
@@ -66,7 +64,7 @@
     width: 175rpx;
     position: absolute;
     top:160rpx;
-    right: 30rpx;
+    left: 530rpx;
 }
 
 .summary{
@@ -90,7 +88,7 @@
 
 .mark{
     margin-right: 30rpx;
-    white-space:nowrap;
+    /*white-space:nowrap;*/
     color: #999999;
 }
 
