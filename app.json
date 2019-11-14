@@ -17,7 +17,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#666",
-    "navigationBarTitleText": "欢迎你",
+    "navigationBarTitleText": "欢迎",
     "navigationBarTextStyle": "write"
   },
   "tabBar": {
